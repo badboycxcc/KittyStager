@@ -13,9 +13,11 @@ func checkAlive(name string) {
 		sleepTime := time.Duration(k.GetSleep()) * time.Second
 		if t > sleepTime+5*time.Second {
 			k.SetAlive(false)
+			continue
 		}
-		if !k.GetAlive() {
-			return
-		}
+		k.SetAlive(true)
+		// if !k.GetAlive() {
+		// 	return
+		// }
 	}
 }
